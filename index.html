@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nawaa Labs · Assistant WhatsApp 24h/24 pour votre commerce</title>
+<meta name="description" content="Un assistant WhatsApp qui répond à vos clients 24h/24 en darija, en français et en anglais, note les réservations et transmet au gérant ce qu'il ne sait pas. Démo gratuite avec votre menu en 48 h.">
+<meta property="og:title" content="Nawaa Labs · Votre commerce répond 24h/24 sur WhatsApp">
+<meta property="og:description" content="Démo gratuite avec votre propre menu en 48 h. 5 places clients fondateurs.">
+<meta property="og:image" content="assets/demo-poster.jpg">
+<link rel="icon" href="assets/nawaa-icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1220; --navy-2:#111A2E; --line:rgba(240,244,250,.12); --cyan:#22D3EE; --orange:#FF8A3D;
+  --cream:#F0F4FA; --muted:#A9B4C8; --wa:#25D366; --radius:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--cream);font:500 17px/1.6 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(900px 600px at 15% -10%,rgba(34,211,238,.16),transparent 60%),
+             radial-gradient(700px 500px at 100% 20%,rgba(255,138,61,.10),transparent 60%)}
+main,header,footer{position:relative;z-index:1}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Sora,Manrope,sans-serif;line-height:1.12;letter-spacing:-.02em}
+h1{font-size:clamp(34px,6vw,62px);font-weight:800}
+h2{font-size:clamp(28px,4vw,42px);font-weight:800;margin-bottom:14px}
+h3{font-size:20px;font-weight:700}
+p.lead{color:var(--muted);font-size:clamp(17px,2vw,20px);max-width:620px}
+.k{color:var(--cyan)} .o{color:var(--orange)}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--wa);color:#05210f;font:800 17px Manrope,system-ui,sans-serif;padding:16px 26px;border-radius:999px;text-decoration:none;box-shadow:0 10px 30px rgba(37,211,102,.25);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--cream);border:1.5px solid var(--line);box-shadow:none}
+.btn svg{width:22px;height:22px}
+nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+nav img{height:38px}
+nav .btn{padding:10px 18px;font-size:15px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:30px 20px 70px}
+.tag{display:inline-flex;gap:8px;align-items:center;font:700 14px Manrope,system-ui,sans-serif;color:var(--cyan);border:1px solid rgba(34,211,238,.35);background:rgba(34,211,238,.08);padding:7px 14px;border-radius:999px;margin-bottom:22px}
+.tag i{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.hero p.lead{margin:20px 0 30px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero small{display:block;margin-top:14px;color:var(--muted);font-size:14px}
+.phone{justify-self:center;width:min(320px,80vw);aspect-ratio:9/16;border-radius:42px;padding:12px;background:linear-gradient(160deg,#1c2538,#0d1322);border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(34,211,238,.15),0 0 60px rgba(34,211,238,.12);transform:rotate(2deg)}
+.phone video{width:100%;height:100%;object-fit:cover;border-radius:32px;background:#000;display:block}
+section{padding:80px 0;border-top:1px solid var(--line)}
+.pain{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.card p{color:var(--muted);margin-top:8px;font-size:16px}
+.ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;margin-bottom:14px;font:800 18px Sora,system-ui,sans-serif;color:var(--navy)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px;counter-reset:s}
+.steps .card{position:relative}
+.steps .card::after{content:"→";position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--cyan);font-weight:800;z-index:2}
+.steps .card:last-child::after{display:none}
+.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.proof figure{background:var(--navy-2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.proof img{width:100%;display:block}
+.proof figcaption{padding:16px 18px;color:var(--muted);font-size:15px}
+.proof figcaption b{color:var(--cream);display:block;margin-bottom:4px}
+.sheet{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.sheet figure{background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.sheet figcaption{background:var(--navy-2);color:var(--muted);padding:14px 18px;font-size:15px}
+.sheet figcaption b{color:var(--cream)}
+.note{font-size:13px;color:var(--muted);margin-top:14px}
+.offer{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;margin-top:34px;align-items:start}
+.list{display:grid;gap:12px}
+.item{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
+.item .n{width:40px;height:40px;border-radius:12px;background:rgba(34,211,238,.12);color:var(--cyan);display:grid;place-items:center;font:800 16px Sora}
+.item p{color:var(--muted);font-size:15px;margin-top:2px}
+.price{position:sticky;top:20px;background:linear-gradient(180deg,#14203a,#0e1628);border:1px solid rgba(34,211,238,.35);border-radius:26px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.price .promo{display:inline-block;background:var(--orange);color:#1a0d02;font:800 13px Manrope,system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:14px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,138,61,.5)}50%{box-shadow:0 0 0 10px rgba(255,138,61,0)}}
+.price .old{font:700 22px Sora,system-ui,sans-serif;color:var(--muted);text-decoration:line-through;text-decoration-color:#e5484d;text-decoration-thickness:3px;margin-top:12px;line-height:1}
+.price .after{color:var(--cream);font-size:15px;margin-bottom:4px}
+.price .seats{display:flex;gap:6px;margin:10px 0 18px}
+.price .seats i{flex:1;height:8px;border-radius:4px;background:var(--orange)}
+.price .big{font:800 56px Sora,system-ui,sans-serif;margin:2px 0 6px;line-height:1.05}
+.price .big small{font:700 16px Manrope,system-ui,sans-serif;color:var(--muted)}
+.price ul{list-style:none;display:grid;gap:10px;margin:18px 0 24px;color:var(--muted);font-size:15px}
+.price li::before{content:"✓";color:var(--wa);font-weight:800;margin-right:10px}
+.price .btn{width:100%;justify-content:center}
+.faq{max-width:800px;margin-top:30px}
+details{border-bottom:1px solid var(--line);padding:18px 4px}
+summary{cursor:pointer;font:700 18px Manrope,system-ui,sans-serif;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";color:var(--cyan);font-size:24px;line-height:1}
+details[open] summary::after{content:"−"}
+details p{color:var(--muted);margin-top:10px;font-size:16px}
+.final{text-align:center;padding:90px 0}
+.final p.lead{margin:16px auto 30px}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer img{height:30px}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;text-align:left;padding-bottom:50px}
+  .phone{transform:none}
+  .pain,.proof{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .steps .card::after{display:none}
+  .sheet{grid-template-columns:1fr}
+  .offer{grid-template-columns:1fr}
+  .price{position:static}
+  section{padding:60px 0}
+}
+@media (max-width:480px){ .steps{grid-template-columns:1fr} nav .btn span{display:none} }
+</style>
+</head>
+<body>
+<header class="wrap">
+  <nav>
+    <img src="assets/nawaa-labs-sombre.png" alt="Nawaa Labs">
+    <a class="btn" href="#demo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></svg><span>Démo gratuite</span></a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="wrap hero">
+    <div>
+      <span class="tag"><i></i> 5 places « clients fondateurs »</span>
+      <h1>Vos clients écrivent.<br><span class="k">Votre assistant répond,</span> 24h/24.</h1>
+      <p class="lead">Un assistant WhatsApp qui répond à vos clients en <b>darija</b>, en <b>français</b> et en <b>anglais</b>, note les réservations dans votre tableau et transmet au gérant tout ce qu'il ne sait pas. Il n'invente jamais.</p>
+      <div class="ctas">
+        <a class="btn" href="#demo">Recevoir ma démo gratuite</a>
+        <a class="btn ghost" href="#comment">Comment ça marche</a>
+      </div>
+      <small>Démo prête en 48 h, avec <b>votre</b> menu et <b>vos</b> tarifs. Sans engagement.</small>
+    </div>
+    <div class="phone">
+      <video src="assets/demo.mp4" poster="assets/demo-poster.jpg" controls playsinline muted loop preload="none"></video>
+    </div>
+  </div>
+
+  <!-- PROBLÈME -->
+  <section>
+    <div class="wrap">
+      <h2>Le téléphone vibre pendant le service.<br><span class="o">Personne n'a le temps de répondre.</span></h2>
+      <p class="lead">« C'est combien ? », « Vous êtes ouverts ? », « Une table pour 4 ce soir ? » : les mêmes questions, toute la journée, souvent au pire moment.</p>
+      <div class="pain">
+        <div class="card"><div class="ico" style="background:var(--orange)">1</div><h3>Les messages s'accumulent</h3><p>Pendant le rush, un message sans réponse, c'est souvent un client qui part voir ailleurs.</p></div>
+        <div class="card"><div class="ico" style="background:var(--cyan)">2</div><h3>Toujours les mêmes questions</h3><p>Prix, horaires, adresse, disponibilités : du temps passé à répéter au lieu de servir.</p></div>
+        <div class="card"><div class="ico" style="background:var(--wa)">3</div><h3>Le soir, plus personne</h3><p>Les clients écrivent quand ils ont le temps, pas aux heures d'ouverture.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMENT -->
+  <section id="comment">
+    <div class="wrap">
+      <h2>Comment ça marche</h2>
+      <p class="lead">Rien à installer de votre côté. Vous gardez toujours le dernier mot.</p>
+      <div class="steps">
+        <div class="card"><div class="ico" style="background:var(--wa)">#1</div><h3>WhatsApp</h3><p>Le client écrit sur le numéro de votre assistant.</p></div>
+        <div class="card"><div class="ico" style="background:var(--cyan)">#2</div><h3>AI</h3><p>L'assistant lit <b>votre</b> menu, vos prix et vos horaires, et rédige la réponse.</p></div>
+        <div class="card"><div class="ico" style="background:#34A853">#3</div><h3>Sheet</h3><p>Les réservations s'ajoutent toutes seules dans votre tableau Google Sheets.</p></div>
+        <div class="card"><div class="ico" style="background:var(--orange)">#4</div><h3>Vous</h3><p>Une question qu'il ne connaît pas ? Elle arrive chez le gérant, sans invention.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREUVES -->
+  <section>
+    <div class="wrap">
+      <h2>De vraies réponses, <span class="k">filmées</span></h2>
+      <p class="lead">Captures réelles de notre restaurant de démonstration « Dar Ali ». Rien n'est retouché, sauf les numéros de téléphone, floutés.</p>
+      <div class="proof">
+        <figure><img src="assets/preuve-couscous.jpg" alt="Réponse en darija sur la disponibilité du couscous" loading="lazy"><figcaption><b>Il connaît votre menu, jour par jour</b>Le couscous n'est servi que le vendredi et le dimanche : il le dit, et propose autre chose.</figcaption></figure>
+        <figure><img src="assets/preuve-reservation.jpg" alt="Réservation confirmée sur WhatsApp" loading="lazy"><figcaption><b>Il prend les réservations</b>Il demande seulement ce qui manque (ici le nom), puis confirme.</figcaption></figure>
+        <figure><img src="assets/preuve-parking.jpg" alt="Question transmise au gérant" loading="lazy"><figcaption><b>Il n'invente rien</b>Pas d'information sur le parking ? Il transmet la question au gérant.</figcaption></figure>
+      </div>
+      <div class="sheet">
+        <figure><img src="assets/preuve-tableau.png" alt="Ligne de réservation dans Google Sheets" loading="lazy"><figcaption><b>La réservation arrive dans votre tableau</b> · nom, date, nombre de personnes</figcaption></figure>
+        <figure><img src="assets/preuve-gerant.png" alt="Question transmise dans l'onglet Gérant" loading="lazy"><figcaption><b>La question attend le gérant</b> · statut « à traiter »</figcaption></figure>
+      </div>
+      <p class="note">Restaurant de démonstration : le menu et l'adresse de « Dar Ali » sont fictifs. Temps de réponse mesurés pendant le tournage : 6 à 11 secondes.</p>
+    </div>
+  </section>
+
+  <!-- OFFRE -->
+  <section id="offre">
+    <div class="wrap">
+      <h2>L'offre <span class="o">clients fondateurs</span></h2>
+      <p class="lead">Nous lançons Nawaa Labs avec 5 commerces seulement, pour bien nous occuper de chacun.</p>
+      <div class="offer">
+        <div class="list">
+          <div class="item"><div class="n">1</div><div><h3>Démo gratuite avec votre menu, en 48 h</h3><p>Vous voyez <b>votre</b> commerce répondre, et vous le testez vous-même, avant de décider.</p></div></div>
+          <div class="item"><div class="n">2</div><div><h3>7 jours d'essai sur un vrai numéro</h3><p>L'assistant répond à vos vrais clients sur un numéro WhatsApp qui lui est réservé. Votre numéro actuel ne change pas.</p></div></div>
+          <div class="item"><div class="n">3</div><div><h3>Une vidéo d'annonce pour vos réseaux</h3><p>Un Reel prêt à publier : « Désormais, on vous répond 24h/24 sur WhatsApp », avec votre assistant en action.</p></div></div>
+          <div class="item"><div class="n">4</div><div><h3>Le kit « Réservez sur WhatsApp »</h3><p>Une affiche avec QR code pour la vitrine ou les tables, et le lien direct pour votre bio Instagram.</p></div></div>
+          <div class="item"><div class="n">5</div><div><h3>Un rapport chaque mois</h3><p>Nombre de demandes et de réservations, questions sans réponse, heures les plus chargées.</p></div></div>
+          <div class="item"><div class="n">6</div><div><h3>Garantie « zéro invention »</h3><p>Si l'assistant donne une information fausse, elle est corrigée sous 24 h. Sinon, le mois est remboursé.</p></div></div>
+          <div class="item"><div class="n">7</div><div><h3>Sans engagement</h3><p>Vous pouvez arrêter chaque mois. Vous changez vos prix et vos horaires vous-même, dans une case.</p></div></div>
+        </div>
+        <div class="price">
+          <span class="promo">Offre de lancement</span>
+          <h3>Tout compris, installation</h3>
+          <div class="old">1 200 DT</div>
+          <div class="big">700 DT</div>
+          <p class="after">Réservé aux <b>5 premiers commerces</b>. Ensuite, le prix de lancement s'arrête.</p>
+          <div class="seats" aria-label="5 places"><i></i><i></i><i></i><i></i><i></i></div>
+          <ul>
+            <li>Démo gratuite avec votre menu</li>
+            <li>7 jours d'essai sur un vrai numéro</li>
+            <li>Vidéo d'annonce + kit QR offerts</li>
+            <li>Darija, français, anglais · 24h/24</li>
+          </ul>
+          <a class="btn" href="#demo">Je réserve ma place</a>
+          <p class="note">Puis un suivi mensuel sans engagement. Les détails (paiement, suivi, messages WhatsApp) sont expliqués pendant l'appel, avant toute décision.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="wrap">
+      <h2>Questions fréquentes</h2>
+      <div class="faq">
+        <details><summary>Et s'il invente une réponse ?</summary><p>Il ne répond qu'avec les informations de votre menu et de vos fiches. S'il ne sait pas, il le dit et transmet la question au gérant. Avant la mise en ligne, nous faisons 15 tests, dont des pièges (plat inexistant, jour de fermeture, demande hors sujet). Et notre garantie « zéro invention » s'applique.</p></details>
+        <details><summary>Est-ce que je garde mon numéro WhatsApp ?</summary><p>Oui. Votre numéro actuel reste dans votre appli, comme aujourd'hui. L'assistant a son propre numéro, que vous mettez dans votre bio Instagram, sur l'affiche QR et dans vos messages.</p></details>
+        <details><summary>Est-ce que les messages WhatsApp sont payants ?</summary><p>WhatsApp (Meta) offre 1 000 réponses par mois et par numéro. Un petit commerce reste en général en dessous. Au-delà, Meta facture quelques centimes par message, directement sur votre compte Meta. Votre rapport mensuel vous montre où vous en êtes, et nous vous prévenons avant la limite.</p></details>
+        <details><summary>Comment je change un prix ou un horaire ?</summary><p>Dans votre tableau Google Sheets : vous changez la case, et l'assistant répond avec la nouvelle information au message suivant.</p></details>
+        <details><summary>Ça marche pour un salon, une salle de sport, une auto-école ?</summary><p>Oui. La démo montre un restaurant, mais l'assistant se configure selon votre métier : tarifs, prestations, rendez-vous, inscriptions. C'est justement le but de la démo gratuite avec vos informations.</p></details>
+        <details><summary>Je peux arrêter quand je veux ?</summary><p>Oui, le mensuel est sans engagement. Vos données (réservations, questions) restent dans votre tableau.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="final" id="demo">
+    <div class="wrap">
+      <h2>Voyez <span class="k">votre</span> commerce répondre.</h2>
+      <p class="lead">Envoyez « DEMO » sur WhatsApp avec le nom de votre commerce. Nous préparons votre démo avec votre menu en 48 h, gratuitement.</p>
+      <a class="btn" href="https://wa.me/21620924930?text=DEMO%20-%20Nom%20de%20mon%20commerce%20%3A%20" id="cta-wa">Écrire « DEMO » sur WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/nawaa-labs-sombre.png" alt="Nawaa Labs">
+    <span>Nawaa Labs · Tunis · Assistants WhatsApp pour les commerces</span>
+  </div>
+</footer>
+</body>
+</html>
